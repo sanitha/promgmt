@@ -1,0 +1,19 @@
+
+<div class ="reset_pass">
+<h2> Reset Your Password </h2>
+<% form_for :user, :url => 'logout' do |f| %>
+<p><%= label_tag 'Enter your Username:' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<%= f.text_field :username %></p>
+
+<p><%= label_tag 'Enter your old password:' %>&nbsp;&nbsp;
+<%= f.text_field :pass %></p>
+
+<p><%= label_tag 'Enter your new password:' %>&nbsp;
+<%= f.password_field :password %></p>
+
+<p><%= label_tag 'Re-enter new password:' %>&nbsp;&nbsp;&nbsp;&nbsp;
+<%= f.password_field :password_confirmation %></p>
+
+<center><p><%= submit_tag 'Reset' %></p></center>
+<% end %>
+</div>

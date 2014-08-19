@@ -1,0 +1,26 @@
+<title>Project Management System</title>
+<div class="heading">
+  <h2><center>Project Management System</center></h2>
+</div>
+	<div class="login">          
+		<div class="login_left">
+                  <img src="/images/comp.png"  style="padding-left:40px; padding-top:40px; width:120px"/>
+			<div class="signup">
+				<%= button_to "Register here", :controller => "user", :action =>"new_user_reg", :method => "post" %>
+			</div>
+		</div>
+		<div class="login_right">
+                  <H1 class="h1_login"><pre>Welcome
+Please Login...</H1></pre>
+			<%= form_tag({:controller => "user", :action => "selection"}, :method => "get") do%>
+			<div class="username">User Name</div>			
+			<div class="usenmetext"><%= text_field_tag(:username, "", :class =>"usernametext")%></div>
+			<div class="password">Password</div>
+			<div class="pswdtext"><%= password_field_tag(:password, "", :class =>"usernametext")%>
+			<font color="red"><%= flash[:notice]%></font></div>
+			<div class="login_box"><%= submit_tag("Login")%>&nbsp &nbsp<input type = "reset" value = "Reset"></div>                        
+			<% end %>
+		</div>
+          <div class ="pass"><%= link_to "Forget Password", :controller => "user", :action => "pass_reset"%></div>
+	</div>
+	<div class="emptydiv"></div></body>

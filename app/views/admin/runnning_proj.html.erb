@@ -1,0 +1,18 @@
+
+<div class ="form_background" align ="center" width ="90%">
+<center><h2><u>Running Projects</u></h2></center>
+<%= form_for :client do |f| %>
+  <table><tr><td>Find:
+    <%= f.autocomplete_field :client_proj_name, "autocomplete_client_proj_name_runnning_proj_path" %>
+  </td></tr></table><br>
+<% end %>
+<table border = 1 width = 90%>
+  <tr><td width="80%"><center><b>Project Name</b></center></td><td width="15%"><b>Team</b></td></tr>
+  <% @runproj.each do |p| %>
+    <tr><center>
+      <td width="85%"><%= p.proj_name.capitalize %></td>
+      <td><%= button_to "Assign", :controller => "admin", :action => 'team_details', :project_id => p.id %> </td>
+  <% end %></center></tr></table>
+  <%= will_paginate @runproj %>
+</div>
+

@@ -1,0 +1,34 @@
+       
+<%= form_for :client, :url => {:action => "proj_enquiry", :user_id => @user_id} do |client| %>
+      
+    <div class ="proj_background">
+      <% unless params[:commit].nil? %> <h4 align="center"> <div class ="estim"><%= flash[:notice] %></div></h4><% end %>
+         <center><h2><u>Project Details</u></h2></center>
+        <p><label>Project Name:</label>
+        <%= client.text_field :proj_name, :class =>"text" %></p><br>
+
+        <p><label class ="textsa">Location: </label>
+        <%= client.select("category", options_for_select(@category), :class=>'textsa' )%><br><br>
+
+
+        <p><%= label_tag 'Front End:' %>
+        <%= client.text_field :frontend, :class =>"text"  %></p><br>
+
+        <p><%= label_tag 'Back End:' %>
+        <%= client.text_field :backend, :class =>"text"  %></p><br>
+
+
+        <p><%= label_tag 'Project Details:' %>
+        <%= client.text_field :details, :class =>"text"  %></p><br>
+
+        <p><%= label_tag 'Duration of completion:' %>
+        <%= client.text_field :duration, :class =>"text"  %></p><br>
+
+        <p><%= label_tag 'Expected cost:' %>
+        <%= client.text_field :cost, :class =>"text"  %></p><br>
+        <div align="right">
+        <p><%= submit_tag 'Save' %> &nbsp &nbsp <input type = "reset" value = "Reset"</p></div>
+       
+    </div>
+
+<% end %>

@@ -1,0 +1,53 @@
+
+<%= form_for :admin, :url => {:action => "add_employee"} do |emp| %>
+      <%if @emp.errors.any?%>
+              <%@emp.errors.full_messages.each do |msg|%>
+                      <div><font color="red" class = "error"><%= msg %></font><br />
+              <%end%>
+      <%end%>
+   <center><h2><u>Employee Details</u></h2>
+    <div class ="proj_background">
+      
+      <% unless params[:commit].nil? %> <h4 align="center"> <div class ="estim"><%= flash[:notice] %></div></h4><% end %>
+          <label>Employee ID:</label>
+          <%= emp.text_field :emp_ID, :class =>"text" %></p><br>
+
+          <label>Employee Last-name:</label>
+          <%= emp.text_field :lastname, :class =>"text" %></p><br>
+
+         <label>Employee First-name:</label>
+          <%= emp.text_field :firstname, :class =>"text" %></p><br>
+
+        <p><%= label_tag 'Designation:' %>
+        <%= emp.text_field :designation, :class =>"text"  %></p><br>
+
+        <p><%= label_tag 'Qualification:' %>
+          <%= emp.text_field :qualification, :class =>"text"  %></p><br>
+
+        <p><%= label_tag 'Skills:' %>
+        <%= emp.text_area :skils, :class =>"text_form"  %></p><br>
+
+        <p><%= label_tag 'Status:' %>
+        <%= emp.text_field :status, :class =>"text"  %></p><br>
+
+        <p><%= label_tag 'Phone No:' %>
+        <%= emp.text_field :phone, :class =>"text"  %></p><br>
+
+         <p><%= label_tag 'Email_id:' %>
+        <%= emp.text_field :email, :class =>"text"  %></p><br>
+        
+        <p><label class="textsa">Gender</label>
+        <%=emp.radio_button(:gender,"Male")%> Male <%=emp.radio_button(:gender,"Female")%> Female</p><br>
+
+        <p><%= label_tag 'Address:' %>
+        <%= emp.text_area :address, :class =>"text_form"  %></p><br>
+
+        <label>Annual Salary:</label>
+          <%= emp.text_field :salary, :class =>"text" %></p><br>
+
+        <div align="right">
+        <p><%= submit_tag '  Save  ' %> &nbsp &nbsp <input type = "reset" value = "Reset"</p></div>
+      
+    </div></center>
+
+<% end %>

@@ -1,0 +1,24 @@
+<%= form_for :admin, :url => {:action => "team_creation"} do |t| %>
+    <div class ="form_background">
+      <center><h2><u>Setup a Team</u></h2></center>
+<% unless params[:commit].nil? %> <h4 align="center"> <div class ="estim"><%= flash[:notice] %></div></h4><% end %>
+          <label>Team ID:</label>
+          <%= t.text_field :team_ID, :class =>"text" %></p><br>
+
+          <label>Team Lead ID:</label>
+          <%= t.text_field :team_lead_ID, :class =>"text" %></p><br>                   
+
+          <label>Number of Employees:</label>
+          <%= t.text_field :no_of_emp, :class =>"text" %></p><br>
+
+          <label>Employee IDs:</label>
+          <%= t.text_area :emp_IDs, :class =>"text_form" %></p><br>
+
+          <label>Status:</label>
+          <%= t.text_field :status, :class =>"text" %></p><br>
+
+           <div align="right">
+                  <p><%= submit_tag '  Create  ' %> &nbsp &nbsp <input type = "reset" value = "Reset"</p></div>                  
+   </div>
+
+<% end %>

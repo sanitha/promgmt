@@ -1,0 +1,7 @@
+
+<div class ="form_background" align ="center" >
+
+<%= button_to "Request for a new project", :controller => :client, :action =>"proj_enquiry", :user_id => session[:user_id], :method => :post %><br>
+
+<%=  button_to "View status of the project", :controller => "client", :action => "view_status", :method => "post" %></div>
+<img src="/images/comp.png"  align="right">

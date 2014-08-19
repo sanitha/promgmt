@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  		<title>Promgmt</title>
+                 <%= stylesheet_link_tag 'login' %>
+  		 <%= stylesheet_link_tag :all %>
+                 <%= javascript_include_tag :defaults %>
+                 <%=  javascript_include_tag "autocomplete-rails.js"%>
+                 <%= csrf_meta_tag %>
+		<body>
+			<div class="main">
+				<div class="header">
+  					<div class="logo"> <img src="/images/company_logo.png" />
+  					</div>
+  				</div>
+				<div class="bar"  align="right"></div>
+				<table class="color" width="100%">
+					
+			</table>
+                                <div class="emptydiv"><br>
+                        <% unless session[:user_id].nil? %>
+                          <input type="button" value="Back" onclick="goBack()" /> &nbsp; &nbsp;&nbsp; &nbsp;
+                          <%= link_to image_tag("/images/logout.gif"), :controller => 'user', :action => "logout" %>&nbsp; &nbsp;
+                          <%= link_to image_tag("/images/edit_account.gif"),"/edit_account"%>&nbsp; &nbsp;
+                        <%end%>
+                          <% if session[:user_version] == "user" %>                            
+                            <%= link_to image_tag("/images/home_new.gif"), :controller => 'client', :action => "user_home" %>&nbsp; &nbsp;
+                            
+                          <% end %>
+                          <% if session[:user_version] == "admin" %>                                                        
+                            <%= link_to image_tag("/images/home_new.gif"), :controller => 'admin', :action => "admin_home" %>&nbsp; &nbsp;
+                            <br>
+                          <% end %>
+                          <% if session[:user_version] == "emp" %>                            
+                            <%= link_to image_tag("/images/home_new.gif"), :controller => 'user', :action => "employee" %>&nbsp; &nbsp;
+                          <% end %>
+                        <% unless session[:user_name].nil? %>
+                            <br><br>&nbsp; &nbsp;&nbsp; &nbsp;<font color = "green"> <b> Welcome <%=  session[:user_name].capitalize %></b></font>
+                        <% end %>
+			</div><br/>
+				<%= yield %>
+                        <div class="emptydiv"><br/>
+			<div class="footer"> Copyright ©  2011 - All Rights Reserved -<a href="http://www.ruby-software.com/"> Rubysoftware pvt </a>
+			Designed & Developed by <a href="http://www.revenuemed.com/"> RevenueMed INC</a> </div>
+		</div>
+	</body>
+</html>

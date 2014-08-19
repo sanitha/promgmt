@@ -1,0 +1,21 @@
+<center><h2><u>Administrator Area</u></h2>
+<div class ="form_background">
+  <table border ="1" align="center" bgcolor="#66aaaa">
+    <font color="#25587E">
+    <tr align ="center"><td width="90%">Enquired Projects</td>
+        <td><%= button_to "    View    ", :controller => "admin", :action => "enquired_proj", :method => "post" %></td></tr>
+    <tr align ="center"><td>Running Projects</td>
+      <td><%= button_to "    View    ", :controller => "admin", :action => "runnning_proj", :method => "post" %></td></tr>
+    <tr align ="center"><td>Project Status</td>
+      <td><%= button_to "    View    ", :controller => "admin", :action => "proj_status", :method => "post" %></td></tr>
+    <tr align ="center"><td>Employee Addition</td>
+      <td><%= button_to "     Add    ", :controller => "admin", :action => "add_employee", :method => "post" %></td></tr>
+    <tr align ="center"><td>Team Creation</td>
+      <td><%= button_to "  Create  ", :controller => "admin", :action => "team_creation", :method => "post" %></td></tr>
+    <tr align ="center"><td>Block/Unblock a User</td>
+      <td><%= button_to "   Block   ", :controller => "admin", :action => "block_user", :method => "post" %></td></tr>
+    <tr align ="center"><td>Change Password</td>
+      <td><%= button_to "Change", :controller => "user", :action => "pass_reset", :method => "post" %></td></tr></font>
+  </table>
+</div></center>
+ 

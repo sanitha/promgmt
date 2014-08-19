@@ -1,0 +1,10 @@
+
+<div class ="form_background" align ="center" >
+   <center><h2><u>Enquired Projects</u></h2></center>
+  <table border = 1 width = 90%>
+    <% @project.each do |p| %>
+    <tr><td width="90%"><center><%= p.proj_name.capitalize%></td>
+      <td><%= button_to "details", :action => "enq_proj_details", :controller => "admin", :project_id => p.id %> </td>
+        <td> <%= button_to "Estimate", :action => "user_needs", :controller => "admin", :project_id => p.id %></td>
+    <% end %>
+  </center></tr></table></div>

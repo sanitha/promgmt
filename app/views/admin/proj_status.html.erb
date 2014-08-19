@@ -1,0 +1,14 @@
+
+<div class ="team_background" align ="center" width ="90%">
+  <center><h2><u>Project Status</u></h2></center>
+  <table border = 1 width = 90%>
+    <tr><td width="400px"><center><b>Project Name</b></center></td><td width="150px"><b>Assigned Team</b></td><td width="100px"><b>Status(%)</b></td><td width="100px"><b>Enquired by</b></td></tr>
+    <% @projstat.each do |p| %>
+      <tr><center>
+        <td width="60%"><%= p.proj_name.capitalize %></td>
+        <td> <%= p.team_id %> </td>
+        <td><%= p.status %> </td>
+        <td><%= p.enquiry_id %> </td>
+    <% end %></center></tr></table>
+ 
+</div>

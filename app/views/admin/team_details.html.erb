@@ -1,0 +1,18 @@
+<div width ="60%"><h2 align ="left"><u>Assign Project - '<%= @project.proj_name.capitalize %>' - to a Team </u></h2></div>
+<div class ="proj_background" align ="center" width ="90%">
+  <table border = 1 width = 90%>
+    <tr align="center"><td><b>Team ID</b></td><td><b>Team Lead ID</b></td><td><b>No of Employees</b></td><td><b>Status</b></td><td>Select</td></tr>
+  <% @team.each do |t| %>
+    <tr align="center">
+      <td><%= t.team_ID %></td>
+      <td><%= t.team_lead_ID %> </td>
+      <td><%= t.no_of_emp %></td>
+      <td><% if t.status == '0' %>
+             Free 
+          <% else %>
+             Busy
+          <% end %> </td>
+          <td><%= button_to "Assign", :controller => 'admin', :action => 'assign_proj', :project_id => @project.id, :team_id =>t.id %> </td>
+  <% end %></tr></table></div>
+
+

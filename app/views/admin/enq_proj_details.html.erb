@@ -1,0 +1,16 @@
+
+  <div class ="proj_background">
+    <center><h2><u>Enquired Projects Details</u></h2></center>
+    <table border = 1> <center>
+        <tr><td width="400px">Project ID:</td><td width="250px"><%= @project.id %></td></tr>
+        <tr><td>Project Name :</td><td> <%= @project.proj_name %></td></tr>
+          <td>Project Category :</td><td> <%= @project.category %></td></tr>
+          <td>Required Frontend:</td><td> <%= @project.frontend %> </td></tr>
+          <td>Required Backend :</td><td> <%= @project.backend %> </td></tr>
+          <td>Cost mentioned :</td><td>  <%= @project.cost %></td></tr>
+          <td>Other details :</td><td>  <%= @project.details %></td></tr>
+          <td>Duration of completion:</td><td>  <%= @project.duration %></td></tr>
+    </table><br>
+    <div align ="center"> <%= button_to "Estimate", :action => "user_needs", :controller => "admin", :project_id => @project.id%></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<%= form_tag :action => "assign_proj",:project_id => @project.id, :team_id => @team.id do %>
+    <div class ="form_background">
+      <center><h2><u>Project Sheduling...</u></h2></center>
+      <% unless params[:commit].nil? %> <h4 align="center"> <div class ="estim"><%= flash[:notice] %></div></h4><% end %>
+          <label>Project Name : </label>&nbsp;&nbsp;&nbsp;
+        <b><%= @project.proj_name %><br><br></b>
+          <label>Start date (dd/mm/yyyy):&nbsp;&nbsp;&nbsp;</label>
+          <%= text_field_tag :start_date %></p><br>
+          <label>End date (dd/mm/yyyy): &nbsp;&nbsp;&nbsp;</label>
+          <%= text_field_tag :end_date %></p><br>
+          <%= hidden_field_tag :project_id %>
+           <%= hidden_field_tag :team_id %>        
+          <div align="right"><p><%= submit_tag '  Shedule  ' %> &nbsp &nbsp <input type = "reset" value = "Reset"</p></div>
+    </div>
+<% end %>

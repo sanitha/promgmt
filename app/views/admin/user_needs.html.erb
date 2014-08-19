@@ -1,0 +1,50 @@
+<h2 align ="center"><u>Project Cost Estimation</u></h2>
+<h3>Project Name : <%= @project.proj_name.capitalize %></h3>
+<% unless params[:commit].nil? %> <h4 align="center"> <div class ="estim"><%= @r = flash[:notice] %><br>    
+      <%= button_to "Shedule the Project now",:action => "runnning_proj", :method => 'post' %></div></h4>
+<% end %>
+<%= form_tag :action => "user_needs", :project_id => @project.id do %>
+  <div style="width:100%">
+      <div style ="float:right; padding-top:50px; padding-right:100px">
+        <pre>
+        Project Categories:&nbsp; <%= select_tag "category",
+                     options_for_select(@category, "val") %>
+                     <br><br><br><br><br><br></pre>
+        <pre>
+        Decision to make the application:<br>
+            <%= radio_button_tag 'new', 4 %> Build a new one <br>
+            <%= radio_button_tag 'new', 2 %> Reuse the existing one <br>
+            <%= radio_button_tag 'new', 3 %> Buy a new one <br>
+            <%= radio_button_tag 'new', 2 %> Contract based <br></pre>
+        <br><br><br><br><br>
+      </div>
+      <div style="width:40%";>
+             <pre>
+               Backup and Recovery:               <%= check_box_tag 'c1', 3 %><br>
+               Data Communication:                <%= check_box_tag 'c2', 3 %><br>
+               Distributed Processing:            <%= check_box_tag 'c3', 2 %><br>
+               Performance Critical:              <%= check_box_tag 'c4', 6 %><br>
+               Existing operating Environment:    <%= check_box_tag 'c5', 4 %><br>
+               Online Dataentry:                  <%= check_box_tag 'c6', 6 %><br>
+               Input transaction over screens:    <%= check_box_tag 'c7', 8 %><br>
+               ILFs updated online:               <%= check_box_tag 'c8', 4 %><br>
+               Information domain values complex: <%= check_box_tag 'c9', 8 %><br>
+               Internal processing complex:       <%= check_box_tag 'c0', 8 %><br>
+               Code designed for reuse:           <%= check_box_tag 'c11', 6 %><br>
+               Installation in design:            <%= check_box_tag 'c12', 4 %><br>
+               Multiple installation:             <%= check_box_tag 'c13', 8 %><br>
+               Application designed for change:   <%= check_box_tag 'c14', 8 %><br>
+            </pre>
+        </div>
+        <%= hidden_field_tag :project.id, "@project.id" %>
+        <div style ="float:center; margin-left:60%; padding-bottom:10px;">
+            <%= submit_tag 'Estimate Project cost' %>
+          
+        </div>
+      
+  </div>
+<% end %>
+   
+<%= button_to "Go to Running Projects",:action => "runnning_proj", :method => 'post' %>&nbsp; &nbsp;
+ 
+  

@@ -1,0 +1,27 @@
+<div style ="float:right; padding-top:50px; padding-right:100px">
+<img src="/images/comp.png"></div>
+<div class ="form_background">
+  <p><center><h2><u>Your Project status</u></h2></center>
+  <%= form_tag :action => "view_status" do %>
+  <p><label>Enter your Project id: &nbsp;</label>
+       <%= text_field_tag :pid %></p><br>
+       <div align="center"><%= submit_tag 'Submit' %></div><br><br>
+  <% end %>
+</div>
+  <% unless params[:commit].nil? %>
+      <div class ="form_background">
+        <center><font color = 'green'>Welcome to Project management system</font></center>
+          <% @stat.each do |stat| %>
+              <% unless stat.status == 'N' %>
+                  <% @project.each do |p| %>
+                      <center> <p>Status of your project(<%= p.proj_name %>)  is <b> <%= p.status %> %</b> </p></center>
+                  <% end %>              
+              <% else %>
+                      <center><font color = 'red'><%= @status %></font></center>
+              <% end %>
+              <%if stat.status == '0'%>
+                      <center><font color = 'red'>Will update soon... Please wait patiently!</font></center>
+              <% end %>
+          <%end%>
+      </div>
+  <% end %>

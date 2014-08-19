@@ -1,0 +1,12 @@
+
+<div class ="proj_background"><br>
+  <center><h2><u> Block/Unbloack User/Employee</u></h2></center>
+  <%= form_tag :action => "block_user" do %>
+  <label>Name of the Employee to be block/unblock:</label><br><br>
+       <center><%= text_field_tag :name %>&nbsp; &nbsp;
+       <%= radio_button_tag 'block', 'block' %>Block
+       <%= radio_button_tag 'block', 'unblock' %>Unblock &nbsp; &nbsp;<br><br>
+       <%= submit_tag 'Submit' %><br><br>
+       <%=  flash[:notice] %>
+   <% end %>
+</div>
